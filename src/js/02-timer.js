@@ -28,15 +28,27 @@ datetimePicker.addEventListener('change', () => {
   onDateSelect(datetimePicker.selectedDates[0]);
 });
 
+function checkIfDateIsInFuture(date) {
+  return date > options.defaultDate;
+}
+
 function onDateSelect(date) {
   selectedDate = date;
 
-  if (date < options.defaultDate) {
-    Report.failure('Оберіть дату в майбутньому', 'Помилка', 'OK');
-  } else {
+  if (checkIfDateIsInFuture(date)) {
     buttonStart.disabled = false;
+  } else {
+    buttonStart.disabled = true;
   }
 }
+
+buttonStart.disabled = true;
+
+datetimePicker.addEventListener('change', () => {
+  onDateSelect(datetimePicker.selectedDates[0]);
+});
+
+
 
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
