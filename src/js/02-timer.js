@@ -24,9 +24,7 @@ let intervalId = null;
 
 flatpickr(datetimePicker, options);
 
-datetimePicker.addEventListener('change', () => {
-  onDateSelect(datetimePicker.selectedDates[0]);
-});
+
 
 function checkIfDateIsInFuture(date) {
   return date > options.defaultDate;
@@ -44,9 +42,7 @@ function onDateSelect(date) {
 
 buttonStart.disabled = true;
 
-datetimePicker.addEventListener('change', () => {
-  onDateSelect(datetimePicker.selectedDates[0]);
-});
+
 
 
 
